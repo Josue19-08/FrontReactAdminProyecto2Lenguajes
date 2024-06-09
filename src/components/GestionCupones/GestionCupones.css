@@ -1,101 +1,106 @@
 .gestion-cupones-container {
-    padding: 20px;
-    text-align: center;
-  }
-  
-  .cupones-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-  }
-  
-  .cupon {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    overflow: hidden;
-    width: 300px;
-    background-color: #f9f9f9;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    padding: 20px;
-    transition: background-color 0.3s ease;
-  }
-  
-  .cupon-activo {
-    background-color: #d4edda; /* Verde claro */
-  }
-  
-  .cupon-inactivo {
-    background-color: #f8d7da; /* Rojo claro */
-  }
-  
-  .cupon-imagen {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    margin-bottom: 20px;
-    border-radius: 50%;
-  }
-  
-  .cupon input {
-    width: calc(100% - 20px);
-    margin: 5px 0;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 25px;
-    background-color: #eee;
-  }
-  
-  .cupon label {
-    color: #333; /* Color de las letras del label */
-    font-weight: bold; /* Opcional: para que el texto sea en negrita */
-    margin-bottom: 5px; /* Opcional: espacio debajo del label */
-  }
-  
-  .cupon-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    width: 100%;
-  }
-  
-  .cupon-buttons button {
-    padding: 10px;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    background-color: #007bff;
-    color: white;
-    font-size: 14px;
-  }
-  
-  .cupon-buttons button:nth-child(2) {
-    background-color: #dc3545;
-  }
-  
-  .cupon-buttons button:nth-child(3) {
-    background-color: #28a745;
-  }
-  
-  .cupon-buttons button:hover {
-    opacity: 0.8;
-  }
-  
-  .modal-overlay {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .modal-button {
-    background-color: #007bff;
-    color: white;
-  }
-  
-  .modal-button:hover {
-    background-color: #0056b3;
-  }
-  
+  padding: 20px;
+  text-align: center;
+}
+
+.cupones-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.cupon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 300px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.cupon-activo {
+  background-color: #d4edda;
+  /* Verde claro */
+}
+
+.cupon-inactivo {
+  background-color: #f8d7da;
+  /* Rojo claro */
+}
+
+.cupon-imagen {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-bottom: 20px;
+  border-radius: 50%;
+}
+
+.cupon input {
+  width: calc(100% - 20px);
+  margin: 5px 0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  background-color: #eee;
+}
+
+.cupon label {
+  color: #333;
+  /* Color de las letras del label */
+  font-weight: bold;
+  /* Opcional: para que el texto sea en negrita */
+  margin-bottom: 5px;
+  /* Opcional: espacio debajo del label */
+}
+
+.cupon-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.cupon-buttons button {
+  padding: 10px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  font-size: 14px;
+}
+
+.cupon-buttons button:nth-child(2) {
+  background-color: #dc3545;
+}
+
+.cupon-buttons button:nth-child(3) {
+  background-color: #28a745;
+}
+
+
+.cupon-buttons button:hover {
+  opacity: 0.8;
+}
+
+.modal-overlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-button {
+  background-color: #007bff;
+  color: white;
+}
+
+.modal-button:hover {
+  background-color: #0056b3;
+}

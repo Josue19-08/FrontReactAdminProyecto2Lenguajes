@@ -6,7 +6,7 @@ function Header() {
     <header className="header">
       <h1>Cuponia</h1>
       <nav>
-      <a href="/inicio">Inicio </a>  | <a href="/perfil">Crear Empresa </a> | <a href="/">Cerrar sesión</a>|
+      <a href="/inicio">Inicio </a>  | <a href="/crear-Empresa">Crear Empresa </a> | <a href="/">Cerrar sesión</a>|
       </nav>
     </header>
   );

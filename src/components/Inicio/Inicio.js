@@ -2,11 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Inicio.css';
 
-const API_EMPRESA_URL = 'http://localhost/PlataformaCupones/PlataformaCuponesPHP/Backend%20PHP/Presentacion/EmpresaController.php';
+const API_EMPRESA_URL = 'http://localhost:8080/PlataformaCuponesPHP/Backend%20PHP/Presentacion/EmpresaController.php';
 
 function Inicio() {
   const [empresas, setEmpresas] = useState([]);
   const navigate = useNavigate();
+  let [empresaActualizar, setEmpresaActualizar] = useState([]);
 
   useEffect(() => {
     fetchEmpresas();
@@ -55,11 +56,12 @@ function Inicio() {
       <h1>Lista de Empresas</h1>
       <div className="empresas-container">
         {empresas.map((empresa) => (
+
           <div key={empresa.id} className={`empresa-card ${empresa.estado.toLowerCase()}`}>
             <img src={empresa.imagen} alt={empresa.nombre} className="empresa-imagen" />
             <div className="empresa-info">
               <label>Nombre:</label>
-              <input type="text" value={empresa.nombre} readOnly />
+              <input type="text" value={empresa.nombre} readOnly/>
               <label>Dirección:</label>
               <input type="text" value={empresa.direccion} readOnly />
               <label>Cédula:</label>
@@ -74,6 +76,7 @@ function Inicio() {
                 <button onClick={() => updateEmpresaEstado(empresa, 'Activo')}>Habilitar</button>
                 <button onClick={() => updateEmpresaEstado(empresa, 'Inactivo')}>Inhabilitar</button>
                 <button onClick={() => goToGestionCupones(empresa.id)}>Cupones Publicados</button>
+                <button>Actualizar</button>
               </div>
             </div>
           </div>
