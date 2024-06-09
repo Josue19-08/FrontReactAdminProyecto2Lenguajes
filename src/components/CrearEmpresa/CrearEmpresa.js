@@ -18,7 +18,7 @@ function CrearEmpresa() {
         telefono: '',
         imagen: '',
         contrasenna: generarContrasenia(),
-        estado: 'Activo'
+        estado: 'Nuevo'
     });
 
     const devolverEstadoInicial = {

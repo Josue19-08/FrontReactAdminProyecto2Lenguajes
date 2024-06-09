@@ -23,9 +23,14 @@
     transition: background-color 0.3s ease;
 }
 
-.empresa-card{
+.empresa-card {
     background-color: #d4edda;
-    
+
+}
+
+.empresa-card.nuevo {
+    background-color: #fff3cd;
+   
 }
 
 
