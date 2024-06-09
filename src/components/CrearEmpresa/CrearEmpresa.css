@@ -1,16 +1,16 @@
 .inicio-container {
     padding: 20px;
     text-align: center;
-  }
-  
-  .empresas-container {
+}
+
+.empresas-container {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
-  }
-  
-  .empresa-card {
+}
+
+.empresa-card {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -19,82 +19,80 @@
     overflow: hidden;
     width: 400px;
     background-color: #f9f9f9;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s ease;
-  }
-  
-  .empresa-card.activo {
-    background-color: #d4edda; /* Verde claro */
-  }
-  
-  .empresa-card.inactivo {
-    background-color: #f8d7da; /* Rojo pastel */
-  }
-  
-  .empresa-card.nuevo {
-    background-color: #fff3cd; /* Amarillo pastel */
-  }
-  
-  .empresa-imagen {
+}
+
+.empresa-card{
+    background-color: #d4edda;
+    
+}
+
+
+
+.empresa-imagen {
     width: 150px;
     height: 150px;
     object-fit: cover;
     margin-top: 20px;
-    border-radius: 50%; /* Borde redondeado */
-  }
-  
-  .empresa-info {
+    border-radius: 50%;
+    /* Borde redondeado */
+}
+
+.empresa-info {
     padding: 20px;
     width: 100%;
     text-align: center;
-  }
-  
-  .empresa-info label {
+}
+
+.empresa-info label {
     display: block;
     font-weight: bold;
     margin-top: 10px;
-  }
-  
-  .empresa-info input {
+}
+
+.empresa-info input {
     width: calc(100% - 20px);
     margin-top: 5px;
     margin-bottom: 10px;
     padding: 10px;
     border: 1px solid #ccc;
-    border-radius: 20px; /* Bordes redondeados */
+    border-radius: 20px;
+    /* Bordes redondeados */
     background-color: #eee;
-  }
-  
-  .empresa-buttons {
+}
+
+.empresa-buttons {
     display: flex;
     justify-content: space-between;
     margin-top: 10px;
     width: 100%;
-  }
-  
-  .empresa-buttons button {
+}
+
+.empresa-buttons button {
     padding: 10px;
     border: none;
-    border-radius: 20px; /* Bordes redondeados */
+    border-radius: 20px;
+    /* Bordes redondeados */
     cursor: pointer;
     background-color: #28a745;
     color: white;
     font-size: 14px;
     margin: 5px;
-  }
-  
-  .empresa-buttons button:nth-child(2) {
+}
+
+.empresa-buttons button:nth-child(2) {
     background-color: #dc3545;
-  }
-  
-  .empresa-buttons button:nth-child(3) {
+}
+
+.empresa-buttons button:nth-child(3) {
     background-color: #007bff;
-  }
-  .empresa-buttons button:nth-child(4) {
+}
+
+.empresa-buttons button:nth-child(4) {
     background-color: #ffd320;
-  }
-  
-  .empresa-buttons button:hover {
+}
+
+.empresa-buttons button:hover {
     opacity: 0.8;
-  }
-  
+}
