@@ -6,6 +6,9 @@ import CryptoJS from 'crypto-js';
 const API_EMPRESA_URL = 'http://localhost:8080/PlataformaCuponesPHP/Backend%20PHP/Presentacion/EmpresaController.php';
 
 function CrearEmpresa() {
+
+    const [tipoCedula, setTipoCedula] = useState('fisica');
+
     const [empresaACrear, setEmpresaACrear] = useState({
         nombre: '',
         direccion: '',
@@ -27,7 +30,27 @@ function CrearEmpresa() {
         telefono: '',
         imagen: '',
         contrasenna: generarContrasenia(),
-        estado: 'Activo'
+        estado: 'Nuevo'
+    };
+
+    const handleCedulaChange = (e) => {
+        const { value } = e.target;
+        let maskedValue = value.replace(/\D/g, ''); 
+
+        if (tipoCedula === 'fisica') {
+            if (maskedValue.length > 2) maskedValue = maskedValue.slice(0, 2) + '-' + maskedValue.slice(2);
+            if (maskedValue.length > 7) maskedValue = maskedValue.slice(0, 7) + '-' + maskedValue.slice(7);
+            if (maskedValue.length > 12) maskedValue = maskedValue.slice(0, 12);
+        } else {
+            if (maskedValue.length > 2) maskedValue = maskedValue.slice(0, 2) + '-' + maskedValue.slice(2);
+            if (maskedValue.length > 6) maskedValue = maskedValue.slice(0, 6) + '-' + maskedValue.slice(6);
+            if (maskedValue.length > 13) maskedValue = maskedValue.slice(0, 13);
+        }
+
+        setEmpresaACrear(prevState => ({
+            ...prevState,
+            cedula: maskedValue
+        }));
     };
 
     function generarContrasenia(length = 12) {
@@ -48,6 +71,13 @@ function CrearEmpresa() {
             ...prevState,
             [name]: value
         }));
+    };
+
+    const handleCombinedChange = (e) => {
+        handleChange(e);
+        if (e.target.name === 'cedula') {
+            handleCedulaChange(e);
+        }
     };
 
     const validarEmpresa = (empresa) => {
@@ -121,7 +151,6 @@ function CrearEmpresa() {
                 contrasenna: generarContrasenia()
             });
 
-            
         } catch (error) {
             console.error('Error creando la empresa:', error);
             alert('Hubo un error al crear la empresa');
@@ -150,12 +179,17 @@ function CrearEmpresa() {
                             value={empresaACrear.direccion}
                             onChange={handleChange}
                         />
+                        <label>Tipo de Cédula</label>
+                        <select name="tipoCedula" onChange={(e) => setTipoCedula(e.target.value)} required>
+                            <option value="fisica">Física</option>
+                            <option value="juridica">Jurídica</option>
+                        </select>
                         <label>Cédula:</label>
                         <input
                             type="text"
                             name="cedula"
                             value={empresaACrear.cedula}
-                            onChange={handleChange}
+                            onChange={handleCombinedChange} 
                         />
                         <label>Fecha de Creación:</label>
                         <input
