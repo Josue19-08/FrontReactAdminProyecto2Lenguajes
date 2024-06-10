@@ -4,6 +4,7 @@ import Login from './components/Login/Login';
 import Inicio from './components/Inicio/Inicio';
 import GestionCupones from './components/GestionCupones/GestionCupones';
 import Layout from './components/Layout'; // Asegúrate de que esta ruta sea correcta
+import CrearEmpresa from './components/CrearEmpresa/CrearEmpresa';
 
 function App() {
   return (
@@ -12,7 +13,8 @@ function App() {
         <Route path="/" element={<Login />} />
         <Route path="/inicio" element={<Layout><Inicio /></Layout>} />
         <Route path="/gestion-cupones/:empresaId" element={<Layout><GestionCupones /></Layout>} />
-        {/* Agrega otras rutas aquí */}
+        <Route path="/crear-empresa" element={<Layout><CrearEmpresa /></Layout>} />
+        
       </Routes>
     </Router>
   );
