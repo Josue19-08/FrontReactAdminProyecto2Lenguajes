@@ -3,12 +3,11 @@ import './CrearEmpresa.css';
 import logo from '../../img/logo.png';
 import CryptoJS from 'crypto-js';
 
-const API_EMPRESA_URL = 'http://localhost:8080/PlataformaCuponesPHP/Backend%20PHP/Presentacion/EmpresaController.php';
+const API_EMPRESA_URL = 'http://localhost/PlataformaCuponesPHP/Backend%20PHP/Presentacion/EmpresaController.php';
 
 function CrearEmpresa() {
 
     const [tipoCedula, setTipoCedula] = useState('fisica');
-
     const [empresaACrear, setEmpresaACrear] = useState({
         nombre: '',
         direccion: '',
@@ -17,7 +16,7 @@ function CrearEmpresa() {
         correo: '',
         telefono: '',
         imagen: '',
-        contrasenna: generarContrasenia(),
+        contrasenna: '',
         estado: 'Nuevo'
     });
 
@@ -29,7 +28,7 @@ function CrearEmpresa() {
         correo: '',
         telefono: '',
         imagen: '',
-        contrasenna: generarContrasenia(),
+        contrasenna: '',
         estado: 'Nuevo'
     };
 
@@ -61,8 +60,8 @@ function CrearEmpresa() {
             contra += charset[randomIndex];
         }
 
-        const contraEncriptada = CryptoJS.SHA256(contra).toString();
-        return contraEncriptada;
+        
+        return contra;
     }
 
     const handleChange = (e) => {
@@ -124,13 +123,17 @@ function CrearEmpresa() {
         if (!validarEmpresa(empresaACrear)) {
             return;
         }
-
+        
+        let contraGenerada = generarContrasenia();
+        let contraEncriptada = CryptoJS.SHA256(contraGenerada).toString();
+        empresaACrear.contrasenna = contraEncriptada;
         const dataToSend = {
             METHOD: 'POST',
             ...empresaACrear
         };
 
-        console.log('Datos que se envían:', JSON.stringify(dataToSend, null, 2));
+        console.log("Contra generada: "+contraGenerada);
+        console.log("Contra Encriptada: "+contraEncriptada);
 
         try {
             const response = await fetch(API_EMPRESA_URL, {
@@ -143,14 +146,15 @@ function CrearEmpresa() {
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
-            const result = await response.json();
+            
             alert("Empresa creada");
-
+            alert("Contraseña para inicio de sesión: "+contraGenerada);
+            
             setEmpresaACrear({
                 ...devolverEstadoInicial,
                 contrasenna: generarContrasenia()
             });
-
+            
         } catch (error) {
             console.error('Error creando la empresa:', error);
             alert('Hubo un error al crear la empresa');

@@ -4,7 +4,7 @@ import CryptoJS from 'crypto-js';
 import './Login.css';
 import logo from '../../img/logo.png';
 
-const API_USUARIO_URL = 'http://localhost:8080/PlataformaCuponesPHP/Backend%20PHP/Presentacion/UsuarioController.php';
+const API_USUARIO_URL = 'http://localhost/PlataformaCuponesPHP/Backend%20PHP/Presentacion/UsuarioController.php';
 
 function Login() {
   const [username, setUsername] = useState('');

@@ -7,8 +7,8 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
-const API_CUPON_URL = 'http://localhost:8080/PlataformaCuponesPHP/Backend%20PHP/Presentacion/CuponController.php';
-const API_PROMOCION_URL = 'http://localhost:8080/PlataformaCuponesPHP/Backend%20PHP/Presentacion/PromocionController.php';
+const API_CUPON_URL = 'http://localhost/PlataformaCuponesPHP/Backend%20PHP/Presentacion/CuponController.php';
+const API_PROMOCION_URL = 'http://localhost/PlataformaCuponesPHP/Backend%20PHP/Presentacion/PromocionController.php';
 
 const style = {
   position: 'absolute',

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Inicio.css';
 
-const API_EMPRESA_URL = 'http://localhost:8080/PlataformaCuponesPHP/Backend%20PHP/Presentacion/EmpresaController.php';
+const API_EMPRESA_URL = 'http://localhost/PlataformaCuponesPHP/Backend%20PHP/Presentacion/EmpresaController.php';
 
 function Inicio() {
   const [empresas, setEmpresas] = useState([]);
