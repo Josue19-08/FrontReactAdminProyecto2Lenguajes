@@ -12,9 +12,9 @@
   align-items: center;
   width: 400px;
   padding: 40px;
-  border: 1px solid #03affc;
+  border: 1px solid #ffcc25;
   border-radius: 10px;
-  background-color: #03affc;
+  background-color: #ffcc25;
   box-shadow: 0 4px 8px rgba(8, 83, 153, 0.377);
 }
 
@@ -58,7 +58,7 @@ input:hover {
 
 button {
   padding: 10px;
-  background-color: #ffd320;
+  background-color: #e63f3f;
   border: none;
   border-radius: 20px;
   cursor: pointer;
@@ -70,6 +70,6 @@ button {
 }
 
 button:hover {
-  background-color: #e9c01e;
+  background-color: #911f1f;
   box-shadow: 0 4px 8px rgba(54, 34, 34, 0.377);
 }

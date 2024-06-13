@@ -52,6 +52,20 @@ function CrearEmpresa() {
         }));
     };
 
+    const handlePhoneChange = (e) => {
+        const { value } = e.target;
+        let maskedValue = value.replace(/\D/g, ''); 
+
+        if (maskedValue.length > 3) maskedValue = '(' + maskedValue.slice(0, 3) + ') ' + maskedValue.slice(3);
+        if (maskedValue.length > 10) maskedValue = maskedValue.slice(0, 10) + '-' + maskedValue.slice(10);
+        if (maskedValue.length > 15) maskedValue = maskedValue.slice(0, 15);
+
+        setEmpresaACrear(prevState => ({
+            ...prevState,
+            telefono: maskedValue
+        }));
+    };
+
     function generarContrasenia(length = 12) {
         const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+[]{}|;:,.<>?";
         let contra = "";
@@ -214,7 +228,7 @@ function CrearEmpresa() {
                             type="text"
                             name="telefono"
                             value={empresaACrear.telefono}
-                            onChange={handleChange}
+                            onChange={handlePhoneChange}
                         />
                         <label>Imagen:</label>
                         <input

@@ -43,6 +43,48 @@ function GestionCupones() {
     }
   }, [empresaId]);
 
+  const actualizarEstadoPromocion = async (promocionId, nuevoEstado) => {
+    const promocion = promociones.find(promo => promo.id === promocionId);
+    if (!promocion) {
+        alert('Promoción no encontrada');
+        return;
+    }
+
+    const dataToSend = {
+        METHOD: 'PUT',
+        id: promocion.id,
+        cupon_id: promocion.cupon_id,
+        descripcion: promocion.descripcion,
+        fecha_inicio: promocion.fecha_inicio,
+        fecha_vencimiento: promocion.fecha_vencimiento,
+        descuento: promocion.descuento,
+        estado: nuevoEstado
+    };
+
+    console.log('Datos que se envían:', JSON.stringify(dataToSend));
+
+    try {
+        const response = await fetch(API_PROMOCION_URL, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(dataToSend)
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const result = await response.json();
+        alert(result.message);
+        fetchPromociones(selectedCupon.id);
+    } catch (error) {
+        console.error('Error actualizando el estado de la promoción:', error);
+        alert('Hubo un error al actualizar el estado de la promoción');
+    }
+  };
+
   const fetchPromociones = useCallback(async (cuponId) => {
     try {
       const response = await fetch(`${API_PROMOCION_URL}?cupon_id=${cuponId}`);
@@ -187,6 +229,8 @@ function GestionCupones() {
                   <Typography variant="body2"><strong>Fecha Vencimiento:</strong> {promocion.fecha_vencimiento}</Typography>
                   <Typography variant="body2"><strong>Descuento:</strong> {promocion.descuento}%</Typography>
                   <Button onClick={() => eliminarPromocion(promocion.id)} sx={{ width: '100%', marginTop: '10px' }} className="modal-button">Eliminar Promoción</Button>
+                  <Button onClick={() => actualizarEstadoPromocion(promocion.id, 'Activo')} sx={{ width: '45%', marginTop: '10px', marginRight: '10px' }} className="modal-button">Habilitar</Button>
+                  <Button onClick={() => actualizarEstadoPromocion(promocion.id, 'Inactivo')} sx={{ width: '45%', marginTop: '10px', marginRight: '10px' }} className="modal-button">Deshabilitar</Button>
                 </Box>
               </li>
             ))}
